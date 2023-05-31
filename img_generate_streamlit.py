@@ -4,6 +4,19 @@ import numpy as np
 from PIL import Image
 import base64
 import os
+import requests
+import time
+
+# Keep the app awake
+url = "https://reshape-image-streamlit.onrender.com"
+
+
+def ping_app():
+    try:
+        requests.get(url)
+        print("Ping sent to", url)
+    except Exception as e:
+        print("Unable to ping", url)
 
 
 def flip_horizontal(image):
@@ -143,6 +156,10 @@ def resize(image, new_shape):
             download_link = create_download_link(
                 transformed_image, f"{transformation.replace(' ', '_')}.jpg")
             st.markdown(download_link, unsafe_allow_html=True)
+    ping_app()
+    while True:
+        time.sleep(600)
+        ping_app()
 
 
 if __name__ == "__main__":
