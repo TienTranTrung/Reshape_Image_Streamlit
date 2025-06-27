@@ -8,15 +8,15 @@ import requests
 import time
 
 # Keep the app awake
-url = "https://reshape-image-streamlit.onrender.com"
+# url = "https://reshape-image-streamlit.onrender.com"
 
 
-def ping_app():
-    try:
-        requests.get(url)
-        print("Ping sent to", url)
-    except Exception as e:
-        print("Unable to ping", url)
+# def ping_app():
+#     try:
+#         requests.get(url)
+#         print("Ping sent to", url)
+#     except Exception as e:
+#         print("Unable to ping", url)
 
 
 def flip_horizontal(image):
